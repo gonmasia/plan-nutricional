@@ -1,9 +1,11 @@
-const CACHE_NAME = 'nutri-pro-v1';
+const CACHE_NAME = 'nutri-pro-v2';
 const urlsToCache = [
   './index.html',
   './recipes-data.js',
   './app.js',
-  './manifest.json'
+  './manifest.json',
+  './icon-192.png',
+  './icon-512.png'
 ];
 
 // Install Service Worker

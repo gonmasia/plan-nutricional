@@ -6,7 +6,10 @@
       "Bash(git add:*)",
       "Bash(git commit:*)",
       "Bash(dir:*)",
-      "Bash(node --version:*)"
+      "Bash(node --version:*)",
+      "Bash(node generate-png-icon.js:*)",
+      "Bash(python create-icon-png.py:*)",
+      "Bash(python create-all-icons.py:*)"
     ]
   }
 }
