@@ -1,12 +1,10 @@
-const CACHE_NAME = 'nutri-pro-v4';
+const CACHE_NAME = 'nutri-pro-v5';
 const urlsToCache = [
-  '/',
-  '/index.html',
-  '/recipes-data.js',
-  '/app.js',
-  '/manifest.json',
-  '/icon-192.png',
-  '/icon-512.png'
+  './',
+  './index.html',
+  './recipes-data.js',
+  './app.js',
+  './manifest.json'
 ];
 
 // Install Service Worker
@@ -65,7 +63,7 @@ self.addEventListener('fetch', event => {
           return response;
         }).catch(() => {
           // Offline fallback
-          return caches.match('/index.html');
+          return caches.match('./index.html');
         });
       })
   );
