@@ -2,36 +2,23 @@
   "name": "Plan Nutricional Pro - Gonzalo 2026",
   "short_name": "Nutri Pro",
   "description": "Plan nutricional hipocalórico de predominio proteico. Seguimiento completo de comidas, recetas favoritas y estadísticas.",
-  "start_url": "/",
-  "scope": "/",
+  "start_url": "./index.html",
   "display": "standalone",
   "background_color": "#2d6a4f",
   "theme_color": "#2d6a4f",
   "orientation": "portrait",
   "icons": [
     {
-      "src": "/icon-192.png",
+      "src": "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='75' font-size='80'>🥗</text></svg>",
       "sizes": "192x192",
-      "type": "image/png",
-      "purpose": "any"
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
     },
     {
-      "src": "/icon-192.png",
-      "sizes": "192x192",
-      "type": "image/png",
-      "purpose": "maskable"
-    },
-    {
-      "src": "/icon-512.png",
+      "src": "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='75' font-size='80'>🥗</text></svg>",
       "sizes": "512x512",
-      "type": "image/png",
-      "purpose": "any"
-    },
-    {
-      "src": "/icon-512.png",
-      "sizes": "512x512",
-      "type": "image/png",
-      "purpose": "maskable"
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
     }
   ],
   "categories": ["health", "lifestyle", "food"],
