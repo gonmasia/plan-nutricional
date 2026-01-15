@@ -4,7 +4,7 @@ Plan nutricional hipocalórico de predominio proteico con seguimiento completo, 
 
 ## 🚀 Acceso Rápido
 
-**URL:** https://gonmasia.github.io/plan-nutricional/plan_nutricion_completo.html
+**URL:** https://gonmasia.github.io/plan-nutricional/
 
 ## ✨ Características
 
@@ -24,7 +24,7 @@ Plan nutricional hipocalórico de predominio proteico con seguimiento completo, 
 ### En iOS (iPhone/iPad):
 
 1. **Abre Safari** (importante: debe ser Safari, no Chrome)
-2. **Ve a:** https://gonmasia.github.io/plan-nutricional/plan_nutricion_completo.html
+2. **Ve a:** https://gonmasia.github.io/plan-nutricional/
 3. **Toca el botón Compartir** (□↑ en la parte inferior)
 4. **Scroll hacia abajo** y selecciona **"Añadir a pantalla de inicio"**
 5. **Edita el nombre** si quieres (viene como "Nutri Pro")
@@ -40,7 +40,7 @@ Plan nutricional hipocalórico de predominio proteico con seguimiento completo, 
 ### En Android:
 
 1. **Abre Chrome**
-2. **Ve a:** https://gonmasia.github.io/plan-nutricional/plan_nutricion_completo.html
+2. **Ve a:** https://gonmasia.github.io/plan-nutricional/
 3. **Verás un banner** "Agregar Plan Nutricional Pro a pantalla de inicio"
    - O toca el botón **"📱 Instalar App"** en la barra de herramientas
 4. **Confirma la instalación**
@@ -118,12 +118,12 @@ Cada receta incluye:
 
 ### Estructura de Archivos
 ```
-plan_nutricion_completo.html  - App principal
-recipes-data.js                - 58 recetas
-app.js                         - Lógica de la app
-manifest.json                  - Configuración PWA
-service-worker.js              - Offline capability
-generate-icons.html            - Generador de iconos
+index.html         - App principal
+recipes-data.js    - 58 recetas
+app.js             - Lógica de la app
+manifest.json      - Configuración PWA
+service-worker.js  - Offline capability
+icon.svg           - Icono de la app
 ```
 
 ### Tecnologías
@@ -140,7 +140,7 @@ git clone https://github.com/gonmasia/plan-nutricional.git
 cd plan-nutricional
 
 # Abrir en navegador
-open plan_nutricion_completo.html
+open index.html
 ```
 
 ## 📝 Licencia

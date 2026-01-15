@@ -4,7 +4,9 @@
       "Bash(git commit -m \"$\\(cat <<''EOF''\nAdd complete PWA functionality - Installable nutrition app\n\nFeatures added:\n- 58 complete recipes \\(23 lunches, 15 snacks, 20 dinners\\)\n- Full nutritional info \\(calories, protein, time, difficulty\\)\n- Minimalist professional design with dark/light mode\n- Interactive dashboard with statistics\n- Meal tracking system with localStorage\n- Favorites system\n- Portion calculator\n- Automatic shopping list generator\n- Advanced filters and real-time search\n- PWA capabilities \\(installable as native app\\)\n- Service Worker for 100% offline functionality\n- Manifest with app icons and shortcuts\n- Icon generator included\n\nFiles:\n- plan_nutricion_completo.html \\(main app\\)\n- recipes-data.js \\(58 recipes database\\)\n- app.js \\(all application logic\\)\n- manifest.json \\(PWA configuration\\)\n- service-worker.js \\(offline mode\\)\n- generate-icons.html \\(icon generator tool\\)\n- icon-base.svg \\(base icon design\\)\n- INSTRUCCIONES_PWA.md \\(complete guide\\)\n- LEEME_PRIMERO.txt \\(quick start\\)\n\nReady to install on mobile devices!\n\nCo-Authored-By: Claude Sonnet 4.5 <noreply@anthropic.com>\nEOF\n\\)\")",
       "Bash(git push:*)",
       "Bash(git add:*)",
-      "Bash(git commit:*)"
+      "Bash(git commit:*)",
+      "Bash(dir:*)",
+      "Bash(node --version:*)"
     ]
   }
 }

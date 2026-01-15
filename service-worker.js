@@ -1,6 +1,6 @@
 const CACHE_NAME = 'nutri-pro-v1';
 const urlsToCache = [
-  './plan_nutricion_completo.html',
+  './index.html',
   './recipes-data.js',
   './app.js',
   './manifest.json'
@@ -62,7 +62,7 @@ self.addEventListener('fetch', event => {
           return response;
         }).catch(() => {
           // Offline fallback
-          return caches.match('/plan_nutricion_completo.html');
+          return caches.match('/index.html');
         });
       })
   );
