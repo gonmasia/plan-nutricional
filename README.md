@@ -119,11 +119,13 @@ Cada receta incluye:
 ### Estructura de Archivos
 ```
 index.html         - App principal
-recipes-data.js    - 58 recetas
-app.js             - Lógica de la app
+recipes-data.js    - 58 recetas con info nutricional
+app.js             - Lógica de la aplicación
 manifest.json      - Configuración PWA
-service-worker.js  - Offline capability
-icon.svg           - Icono de la app
+service-worker.js  - Funcionalidad offline
+icon-192.png       - Icono 192x192 (iOS)
+icon-512.png       - Icono 512x512 (Android/Desktop)
+README.md          - Documentación
 ```
 
 ### Tecnologías
