@@ -1,0 +1,784 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plan Nutricional - Gonzalo 2026</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 0;
+        }
+
+        .header {
+            background: white;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .header h1 {
+            color: #667eea;
+            font-size: 24px;
+            margin-bottom: 5px;
+        }
+
+        .header p {
+            color: #666;
+            font-size: 12px;
+        }
+
+        .search-box {
+            padding: 15px;
+            background: white;
+            margin: 10px;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .search-box input {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 16px;
+            transition: border 0.3s;
+        }
+
+        .search-box input:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+
+        .tabs {
+            display: flex;
+            background: white;
+            margin: 0 10px;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .tab {
+            flex: 1;
+            padding: 15px 5px;
+            text-align: center;
+            background: #f5f5f5;
+            border: none;
+            cursor: pointer;
+            font-size: 13px;
+            font-weight: 600;
+            color: #666;
+            transition: all 0.3s;
+        }
+
+        .tab.active {
+            background: #667eea;
+            color: white;
+        }
+
+        .content {
+            padding: 15px;
+        }
+
+        .tab-content {
+            display: none;
+            animation: fadeIn 0.3s;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .card {
+            background: white;
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 15px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .card h2 {
+            color: #667eea;
+            font-size: 20px;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #f0f0f0;
+        }
+
+        .card h3 {
+            color: #764ba2;
+            font-size: 16px;
+            margin: 20px 0 10px 0;
+        }
+
+        .option-item {
+            padding: 12px;
+            margin-bottom: 8px;
+            background: #f9f9f9;
+            border-radius: 8px;
+            border-left: 4px solid #667eea;
+        }
+
+        .option-item .number {
+            color: #667eea;
+            font-weight: bold;
+            margin-right: 8px;
+        }
+
+        .option-item .title {
+            font-weight: 600;
+            color: #333;
+        }
+
+        .option-item .description {
+            color: #666;
+            font-size: 14px;
+            margin-top: 4px;
+        }
+
+        .rules-list {
+            list-style: none;
+        }
+
+        .rules-list li {
+            padding: 10px;
+            margin-bottom: 8px;
+            background: #f0f7ff;
+            border-radius: 8px;
+            border-left: 4px solid #4CAF50;
+        }
+
+        .rules-list li strong {
+            color: #333;
+        }
+
+        .info-box {
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 15px;
+        }
+
+        .info-box p {
+            color: #856404;
+            line-height: 1.6;
+            margin-bottom: 8px;
+        }
+
+        .warning-box {
+            background: #f8d7da;
+            border-left: 4px solid #dc3545;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 15px;
+        }
+
+        .warning-box p {
+            color: #721c24;
+            line-height: 1.6;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+
+        table th {
+            background: #667eea;
+            color: white;
+            padding: 12px;
+            text-align: left;
+            font-size: 14px;
+        }
+
+        table td {
+            padding: 10px 12px;
+            border-bottom: 1px solid #e0e0e0;
+            font-size: 14px;
+        }
+
+        table tr:nth-child(even) {
+            background: #f9f9f9;
+        }
+
+        .category-badge {
+            display: inline-block;
+            background: #667eea;
+            color: white;
+            padding: 4px 10px;
+            border-radius: 12px;
+            font-size: 12px;
+            margin-right: 8px;
+        }
+
+        .hidden {
+            display: none !important;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>🥗 Plan Nutricional</h1>
+        <p>Gonzalo 2026 - Lic. Susana Aranda</p>
+    </div>
+
+    <div class="search-box">
+        <input type="text" id="searchInput" placeholder="🔍 Buscar opciones de comida...">
+    </div>
+
+    <div class="tabs">
+        <button class="tab active" onclick="showTab('guias')">Guías</button>
+        <button class="tab" onclick="showTab('almuerzos')">Almuerzos</button>
+        <button class="tab" onclick="showTab('meriendas')">Meriendas</button>
+        <button class="tab" onclick="showTab('cenas')">Cenas</button>
+    </div>
+
+    <div class="content">
+        <!-- Tab Guías -->
+        <div id="guias" class="tab-content active">
+            <div class="card">
+                <h2>📋 Reglas Generales</h2>
+                <ul class="rules-list">
+                    <li><strong>SIN pan ni galletitas:</strong> en almuerzo y cena</li>
+                    <li><strong>1-2 huevos diarios:</strong> como base</li>
+                    <li><strong>2 litros de agua:</strong> mínimo por día</li>
+                    <li><strong>No repetir porciones</strong></li>
+                    <li><strong>Se pueden intercambiar</strong> almuerzos y cenas</li>
+                    <li><strong>Limitar ultraprocesados y alcohol</strong></li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <h2>💡 ¿Qué es este Plan?</h2>
+                <div class="info-box">
+                    <p><strong>Plan Hipocalórico de Predominio Proteico</strong></p>
+                    <p>✓ Menos calorías → quema grasa corporal</p>
+                    <p>✓ Más proteínas → preserva músculo</p>
+                    <p>✓ Ayuno 14-16hs → potencia quema de grasa</p>
+                    <p>✓ Mayor saciedad → menos hambre</p>
+                </div>
+            </div>
+
+            <div class="card">
+                <h2>🚫 Carbohidratos a EVITAR</h2>
+                <div class="warning-box">
+                    <p>• Pan blanco, galletitas, facturas</p>
+                    <p>• Harinas refinadas (pastas, pizza común)</p>
+                    <p>• Azúcar, dulces, gaseosas</p>
+                    <p>• Cereales azucarados, barritas</p>
+                    <p>• Snacks (papas fritas, chizitos)</p>
+                    <p>• Arroz blanco en exceso</p>
+                </div>
+            </div>
+
+            <div class="card">
+                <h2>✅ Carbohidratos PERMITIDOS</h2>
+                <ul class="rules-list">
+                    <li>Papa y batata (acompañamiento)</li>
+                    <li>Arroz o quinoa (1 pocillo crudo)</li>
+                    <li>Pastas (porción moderada, ocasional)</li>
+                    <li>Pan integral (solo merienda, 2 rodajas)</li>
+                    <li>Legumbres (lentejas, garbanzos)</li>
+                    <li>Frutas (1-2 por día)</li>
+                    <li>Granola (2 cucharadas)</li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <h2>⚖️ Guía de Porciones</h2>
+                <table>
+                    <tr>
+                        <th colspan="2" style="background: #dc3545;">PROTEÍNAS</th>
+                    </tr>
+                    <tr><td>Carne (bife, lomo, peceto)</td><td>150-180g</td></tr>
+                    <tr><td>Pollo (suprema, pechuga)</td><td>150-180g</td></tr>
+                    <tr><td>Cerdo (bondiola, carré)</td><td>150-180g</td></tr>
+                    <tr><td>Pescado</td><td>150-200g</td></tr>
+                    <tr><td>Milanesa</td><td>1 unidad (~150g)</td></tr>
+                    <tr><td>Huevos</td><td>2 unidades</td></tr>
+                    <tr><td>Jamón/Queso</td><td>2-3 fetas (40-60g)</td></tr>
+                </table>
+
+                <table style="margin-top: 20px;">
+                    <tr>
+                        <th colspan="2" style="background: #ffc107;">CARBOHIDRATOS</th>
+                    </tr>
+                    <tr><td>Papa/batata</td><td>150-200g (1 mediana)</td></tr>
+                    <tr><td>Arroz/quinoa (crudo)</td><td>50-60g (1 pocillo)</td></tr>
+                    <tr><td>Arroz/quinoa (cocido)</td><td>150g</td></tr>
+                    <tr><td>Pastas (crudo)</td><td>70-80g</td></tr>
+                    <tr><td>Pan integral</td><td>2 rodajas (~50g)</td></tr>
+                    <tr><td>Legumbres cocidas</td><td>150-200g</td></tr>
+                </table>
+
+                <table style="margin-top: 20px;">
+                    <tr>
+                        <th colspan="2" style="background: #17a2b8;">LÁCTEOS</th>
+                    </tr>
+                    <tr><td>Yogur</td><td>200g (1 pote)</td></tr>
+                    <tr><td>Leche</td><td>200ml (1 vaso)</td></tr>
+                    <tr><td>Queso rallado</td><td>10-15g (1 cda)</td></tr>
+                </table>
+
+                <table style="margin-top: 20px;">
+                    <tr>
+                        <th colspan="2" style="background: #28a745;">VERDURAS</th>
+                    </tr>
+                    <tr><td>Ensalada de hojas</td><td>Sin límite</td></tr>
+                    <tr><td>Verduras cocidas</td><td>150-200g</td></tr>
+                    <tr><td>Tomate/Zanahoria</td><td>1 unidad</td></tr>
+                </table>
+
+                <table style="margin-top: 20px;">
+                    <tr>
+                        <th colspan="2" style="background: #fd7e14;">FRUTAS</th>
+                    </tr>
+                    <tr><td>Manzana/pera/durazno</td><td>1 unidad (~150g)</td></tr>
+                    <tr><td>Banana</td><td>1/2 a 1 unidad</td></tr>
+                    <tr><td>Frutos secos (nueces)</td><td>4 unidades (~20g)</td></tr>
+                </table>
+            </div>
+
+            <div class="card">
+                <h2>🗓️ Ejemplo de Semana</h2>
+                <table>
+                    <tr><th>Día</th><th>Almuerzo</th></tr>
+                    <tr><td>Lunes</td><td>Bifes a la criolla + ensalada</td></tr>
+                    <tr><td>Martes</td><td>Quinoa con verduras salteadas</td></tr>
+                    <tr><td>Miércoles</td><td>Bondiola al horno con batatas</td></tr>
+                    <tr><td>Jueves</td><td>Milanesa de pollo + ensalada</td></tr>
+                    <tr><td>Viernes</td><td>Tarta de zapallito + zanahoria</td></tr>
+                    <tr><td>Sábado</td><td>Asado de carne + ensalada</td></tr>
+                    <tr><td>Domingo</td><td>Pastas con boloñesa</td></tr>
+                </table>
+            </div>
+        </div>
+
+        <!-- Tab Almuerzos -->
+        <div id="almuerzos" class="tab-content">
+            <div class="card">
+                <h2>🍖 ALMUERZOS (23 Opciones)</h2>
+
+                <h3>Carnes Rojas</h3>
+                <div class="option-item">
+                    <span class="number">1.</span>
+                    <span class="title">Bifes a la criolla</span>
+                    <div class="description">Con cebolla, pimiento y papas en cacerola + ensalada de zanahoria, tomate y huevo</div>
+                </div>
+                <div class="option-item">
+                    <span class="number">2.</span>
+                    <span class="title">Carne al horno con verduras</span>
+                    <div class="description">Roast beef con calabaza, zanahoria y cebolla asadas</div>
+                </div>
+                <div class="option-item">
+                    <span class="number">3.</span>
+                    <span class="title">Bife de chorizo a la plancha</span>
+                    <div class="description">Con ensalada mixta (lechuga, tomate, zanahoria rallada)</div>
+                </div>
+                <div class="option-item">
+                    <span class="number">4.</span>
+                    <span class="title">Estofado de carne</span>
+                    <div class="description">Con papas, zanahorias y arvejas</div>
+                </div>
+                <div class="option-item">
+                    <span class="number">5.</span>
+                    <span class="title">Carne a la cacerola</span>
+                    <div class="description">Con puré de calabaza</div>
+                </div>
+
+                <h3>Cerdo</h3>
+                <div class="option-item">
+                    <span class="number">6.</span>
+                    <span class="title">Bondiola al horno</span>
+                    <div class="description">Con salsa de tomate + batatas y calabacín al horno</div>
+                </div>
+                <div class="option-item">
+                    <span class="number">7.</span>
+                    <span class="title">Carré de cerdo</span>
+                    <div class="description">A la cacerola con verduras</div>
+                </div>
+                <div class="option-item">
+                    <span class="number">8.</span>
+                    <span class="title">Costeleta de cerdo a la plancha</span>
+                    <div class="description">Con ensalada de repollo y zanahoria</div>
+                </div>
+                <div class="option-item">
+                    <span class="number">9.</span>
+                    <span class="title">Solomillo de cerdo</span>
+                    <div class="description">Con puré mixto (papa y batata)</div>
+                </div>
+
+                <h3>Pollo</h3>
+                <div class="option-item">
+                    <span class="number">10.</span>
+                    <span class="title">Suprema de pollo al horno</span>
+                    <div class="description">Con puré de calabaza</div>
+                </div>
+                <div class="option-item">
+                    <span class="number">11.</span>
+                    <span class="title">Pollo al verdeo</span>
+                    <div class="description">Con arroz (1 pocillo en crudo)</div>
+                </div>
+                <div class="option-item">
+                    <span class="number">12.</span>
+                    <span class="title">Muslo de pollo al horno</span>
+                    <div class="description">Con ensalada de remolacha y huevo</div>
+                </div>
+                <div class="option-item">
+                    <span class="number">13.</span>
+                    <span class="title">Pollo a la cacerola</span>
+                    <div class="description">Con papas y zanahorias</div>
+                </div>
+
+                <h3>Milanesas</h3>
+                <div class="option-item">
+                    <span class="number">14.</span>
+                    <span class="title">Milanesa de pollo</span>
+                    <div class="description">Con ensalada de rúcula, tomate, choclo y huevo duro</div>
+                </div>
+                <div class="option-item">
+                    <span class="number">15.</span>
+                    <span class="title">Milanesa de carne</span>
+                    <div class="description">Con ensalada completa (lechuga, tomate, zanahoria, huevo)</div>
+                </div>
+                <div class="option-item">
+                    <span class="number">16.</span>
+                    <span class="title">Milanesa napolitana</span>
+                    <div class="description">Con ensalada verde (sin pan)</div>
+                </div>
+
+                <h3>Tartas y Vegetarianas</h3>
+                <div class="option-item">
+                    <span class="number">17.</span>
+                    <span class="title">Tarta de zapallito con carne molida</span>
+                    <div class="description">Sin tapa, 1/4 de unidad + ensalada de zanahoria rallada</div>
+                </div>
+                <div class="option-item">
+                    <span class="number">18.</span>
+                    <span class="title">Tarta de acelga y huevo</span>
+                    <div class="description">Sin tapa + ensalada de tomate</div>
+                </div>
+                <div class="option-item">
+                    <span class="number">19.</span>
+                    <span class="title">Hamburguesas vegetarianas (2)</span>
+                    <div class="description">Con ensalada de chauchas y huevo duro</div>
+                </div>
+                <div class="option-item">
+                    <span class="number">20.</span>
+                    <span class="title">Quinoa/Arroz con verduras salteadas</span>
+                    <div class="description">Cebolla, pimiento, zanahoria, berenjena (1 pocillo crudo)</div>
+                </div>
+
+                <h3>Pastas y Asado</h3>
+                <div class="option-item">
+                    <span class="number">21.</span>
+                    <span class="title">Fideos con boloñesa</span>
+                    <div class="description">Porción moderada con 1 cda de queso rallado</div>
+                </div>
+                <div class="option-item">
+                    <span class="number">22.</span>
+                    <span class="title">Asado de carne o pollo</span>
+                    <div class="description">Con ensalada mixta</div>
+                </div>
+                <div class="option-item">
+                    <span class="number">23.</span>
+                    <span class="title">Ravioles de verdura</span>
+                    <div class="description">Con salsa fileto (sin repetir)</div>
+                </div>
+            </div>
+
+            <div class="card">
+                <h2>🥗 Ideas de Ensaladas</h2>
+                <table>
+                    <tr><th>Ensalada</th><th>Ingredientes</th></tr>
+                    <tr><td>Mixta clásica</td><td>Lechuga, tomate, zanahoria rallada</td></tr>
+                    <tr><td>Completa</td><td>Rúcula, tomate, choclo, huevo duro</td></tr>
+                    <tr><td>Verde</td><td>Lechuga, rúcula, pepino, apio</td></tr>
+                    <tr><td>De zanahoria</td><td>Zanahoria rallada con limón</td></tr>
+                    <tr><td>Rusa light</td><td>Papa, zanahoria, arvejas, huevo (poca mayo)</td></tr>
+                    <tr><td>Tomate con orégano</td><td>Tomate en rodajas, orégano, aceite</td></tr>
+                    <tr><td>Repollo</td><td>Repollo, zanahoria, vinagreta</td></tr>
+                    <tr><td>Remolacha</td><td>Remolacha, huevo, cebolla</td></tr>
+                </table>
+            </div>
+        </div>
+
+        <!-- Tab Meriendas -->
+        <div id="meriendas" class="tab-content">
+            <div class="card">
+                <h2>☕ MERIENDAS (15 Opciones)</h2>
+
+                <h3>Con Yogur</h3>
+                <div class="option-item">
+                    <span class="number">1.</span>
+                    <span class="title">Yogur con granola y durazno</span>
+                    <div class="description">1 taza yogur + 2 cdas granola + 1 fruta en trozos</div>
+                </div>
+                <div class="option-item">
+                    <span class="number">2.</span>
+                    <span class="title">Yogur con granola y ciruela</span>
+                    <div class="description">1 taza yogur + 2 cdas granola + ciruela picada</div>
+                </div>
+                <div class="option-item">
+                    <span class="number">3.</span>
+                    <span class="title">Yogur con granola y banana</span>
+                    <div class="description">1 taza yogur + 2 cdas granola + 1/2 banana</div>
+                </div>
+                <div class="option-item">
+                    <span class="number">4.</span>
+                    <span class="title">Yogur con frutas del bosque</span>
+                    <div class="description">1 taza yogur + mix de berries + 1 cda granola</div>
+                </div>
+
+                <h3>Con Gelatina</h3>
+                <div class="option-item">
+                    <span class="number">5.</span>
+                    <span class="title">Gelatina con yogur y granola</span>
+                    <div class="description">1 porción gelatina + 1/2 taza yogur + 2 cdas granola</div>
+                </div>
+                <div class="option-item">
+                    <span class="number">6.</span>
+                    <span class="title">Gelatina con frutas</span>
+                    <div class="description">1 porción gelatina + trozos de fruta fresca</div>
+                </div>
+
+                <h3>Licuados</h3>
+                <div class="option-item">
+                    <span class="number">7.</span>
+                    <span class="title">Licuado de durazno</span>
+                    <div class="description">1 vaso leche + 2 duraznos + edulcorante + rollito jamón y queso</div>
+                </div>
+                <div class="option-item">
+                    <span class="number">8.</span>
+                    <span class="title">Licuado de banana</span>
+                    <div class="description">1 vaso leche + 1 banana + edulcorante + rollito jamón y queso</div>
+                </div>
+                <div class="option-item">
+                    <span class="number">9.</span>
+                    <span class="title">Licuado de frutilla</span>
+                    <div class="description">1 vaso leche + frutillas + edulcorante + rollito jamón y queso</div>
+                </div>
+
+                <h3>Con Infusión y Pan Integral</h3>
+                <div class="option-item">
+                    <span class="number">10.</span>
+                    <span class="title">Té/café con leche + tostadas</span>
+                    <div class="description">2 rodajas pan integral con queso y dulce de membrillo</div>
+                </div>
+                <div class="option-item">
+                    <span class="number">11.</span>
+                    <span class="title">Té/café con leche + tostadas con queso untable</span>
+                    <div class="description">2 rodajas pan integral + queso blanco</div>
+                </div>
+                <div class="option-item">
+                    <span class="number">12.</span>
+                    <span class="title">Infusión con pan y jamón</span>
+                    <div class="description">2 rodajas pan integral con jamón y queso</div>
+                </div>
+
+                <h3>Opciones Rápidas</h3>
+                <div class="option-item">
+                    <span class="number">13.</span>
+                    <span class="title">Fruta + puñado de frutos secos</span>
+                    <div class="description">1 manzana/pera + 4 nueces</div>
+                </div>
+                <div class="option-item">
+                    <span class="number">14.</span>
+                    <span class="title">Yogur solo con fruta</span>
+                    <div class="description">1 vaso yogur sin azúcar + 1 fruta picada</div>
+                </div>
+                <div class="option-item">
+                    <span class="number">15.</span>
+                    <span class="title">Rollitos de jamón y queso (2-3)</span>
+                    <div class="description">Con tomates cherry</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tab Cenas -->
+        <div id="cenas" class="tab-content">
+            <div class="card">
+                <h2>🌙 CENAS (20 Opciones)</h2>
+
+                <h3>A Base de Huevo</h3>
+                <div class="option-item">
+                    <span class="number">1.</span>
+                    <span class="title">Tortilla de zapallito</span>
+                    <div class="description">Con papas hervidas</div>
+                </div>
+                <div class="option-item">
+                    <span class="number">2.</span>
+                    <span class="title">Huevos al colchón de arvejas</span>
+                    <div class="description">2 huevos sobre arvejas con cebolla y pimiento salteados</div>
+                </div>
+                <div class="option-item">
+                    <span class="number">3.</span>
+                    <span class="title">Omelete de verduras y queso</span>
+                    <div class="description">Con tomate con albahaca u orégano</div>
+                </div>
+                <div class="option-item">
+                    <span class="number">4.</span>
+                    <span class="title">Tortilla española</span>
+                    <div class="description">Con papa y cebolla + ensalada verde</div>
+                </div>
+                <div class="option-item">
+                    <span class="number">5.</span>
+                    <span class="title">Huevos revueltos con verduras</span>
+                    <div class="description">Con tomate y cebolla + ensalada</div>
+                </div>
+                <div class="option-item">
+                    <span class="number">6.</span>
+                    <span class="title">Huevos a la plancha (2)</span>
+                    <div class="description">Con jamón y queso + ensalada de tomate</div>
+                </div>
+
+                <h3>Carnes</h3>
+                <div class="option-item">
+                    <span class="number">7.</span>
+                    <span class="title">Lomo al plato</span>
+                    <div class="description">Churrasco con jamón, queso y huevo a la plancha + tomate con orégano</div>
+                </div>
+                <div class="option-item">
+                    <span class="number">8.</span>
+                    <span class="title">Bife a la plancha</span>
+                    <div class="description">Con ensalada de tomate, lechuga y zanahoria</div>
+                </div>
+                <div class="option-item">
+                    <span class="number">9.</span>
+                    <span class="title">Pollo grillado</span>
+                    <div class="description">Con verduras al vapor o ensalada</div>
+                </div>
+                <div class="option-item">
+                    <span class="number">10.</span>
+                    <span class="title">Salpicón de pollo</span>
+                    <div class="description">Con papas, zanahoria, huevo duro y arvejas</div>
+                </div>
+
+                <h3>Ensaladas Completas</h3>
+                <div class="option-item">
+                    <span class="number">11.</span>
+                    <span class="title">Ensalada de lentejas</span>
+                    <div class="description">Con tomate, choclo, daditos de queso y zanahoria rallada</div>
+                </div>
+                <div class="option-item">
+                    <span class="number">12.</span>
+                    <span class="title">Ensalada de pollo desmenuzado</span>
+                    <div class="description">Con papa, huevo, tomate y arvejas</div>
+                </div>
+                <div class="option-item">
+                    <span class="number">13.</span>
+                    <span class="title">Ensalada césar (sin croutones)</span>
+                    <div class="description">Lechuga, pollo, parmesano, huevo</div>
+                </div>
+                <div class="option-item">
+                    <span class="number">14.</span>
+                    <span class="title">Ensalada de garbanzos</span>
+                    <div class="description">Con tomate, pepino, cebolla morada y huevo</div>
+                </div>
+
+                <h3>Pizza y Empanadas (ocasional)</h3>
+                <div class="option-item">
+                    <span class="number">15.</span>
+                    <span class="title">Pizza integral</span>
+                    <div class="description">3 porciones, masa fina con harina integral</div>
+                </div>
+                <div class="option-item">
+                    <span class="number">16.</span>
+                    <span class="title">Empanadas</span>
+                    <div class="description">3 unidades (carne, pollo o verdura)</div>
+                </div>
+
+                <h3>Otras Opciones</h3>
+                <div class="option-item">
+                    <span class="number">17.</span>
+                    <span class="title">Tarta de verduras</span>
+                    <div class="description">Sin tapa + ensalada</div>
+                </div>
+                <div class="option-item">
+                    <span class="number">18.</span>
+                    <span class="title">Sushi</span>
+                    <div class="description">8-12 piezas (ocasional)</div>
+                </div>
+                <div class="option-item">
+                    <span class="number">19.</span>
+                    <span class="title">Suprema grillada</span>
+                    <div class="description">Con puré de calabaza</div>
+                </div>
+                <div class="option-item">
+                    <span class="number">20.</span>
+                    <span class="title">Peceto frío</span>
+                    <div class="description">Con ensalada rusa light (papa, zanahoria, arvejas, huevo, poco de mayonesa)</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function showTab(tabName) {
+            // Hide all tabs
+            const tabs = document.querySelectorAll('.tab-content');
+            tabs.forEach(tab => tab.classList.remove('active'));
+
+            // Remove active class from all buttons
+            const buttons = document.querySelectorAll('.tab');
+            buttons.forEach(btn => btn.classList.remove('active'));
+
+            // Show selected tab
+            document.getElementById(tabName).classList.add('active');
+
+            // Add active class to clicked button
+            event.target.classList.add('active');
+        }
+
+        // Search functionality
+        const searchInput = document.getElementById('searchInput');
+        searchInput.addEventListener('input', function() {
+            const searchTerm = this.value.toLowerCase();
+            const allOptions = document.querySelectorAll('.option-item');
+
+            allOptions.forEach(option => {
+                const text = option.textContent.toLowerCase();
+                if (text.includes(searchTerm)) {
+                    option.classList.remove('hidden');
+                } else {
+                    option.classList.add('hidden');
+                }
+            });
+
+            // If searching, also search in tables
+            if (searchTerm) {
+                const tableRows = document.querySelectorAll('table tr');
+                tableRows.forEach(row => {
+                    if (row.querySelector('th')) return; // Skip header rows
+                    const text = row.textContent.toLowerCase();
+                    if (text.includes(searchTerm)) {
+                        row.classList.remove('hidden');
+                    } else {
+                        row.classList.add('hidden');
+                    }
+                });
+            } else {
+                // Show all rows when search is empty
+                const tableRows = document.querySelectorAll('table tr');
+                tableRows.forEach(row => row.classList.remove('hidden'));
+            }
+        });
+    </script>
+</body>
+</html>
