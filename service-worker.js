@@ -1,9 +1,9 @@
 const CACHE_NAME = 'nutri-pro-v1';
 const urlsToCache = [
-  '/plan_nutricion_completo.html',
-  '/recipes-data.js',
-  '/app.js',
-  '/manifest.json'
+  './plan_nutricion_completo.html',
+  './recipes-data.js',
+  './app.js',
+  './manifest.json'
 ];
 
 // Install Service Worker
