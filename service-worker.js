@@ -1,5 +1,6 @@
-const CACHE_NAME = 'nutri-pro-v2';
+const CACHE_NAME = 'nutri-pro-v3';
 const urlsToCache = [
+  './',
   './index.html',
   './recipes-data.js',
   './app.js',
