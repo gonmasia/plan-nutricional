@@ -8,7 +8,7 @@ Plan nutricional hipocalórico de predominio proteico con seguimiento completo, 
 
 ## ✨ Características
 
-- ✅ 58 recetas completas con info nutricional detallada
+- ✅ 59 recetas completas con info nutricional detallada
 - ✅ Dashboard interactivo con estadísticas en tiempo real
 - ✅ Sistema de tracking de comidas completadas
 - ✅ Favoritos personalizados
@@ -119,7 +119,7 @@ Cada receta incluye:
 ### Estructura de Archivos
 ```
 index.html         - App principal
-recipes-data.js    - 58 recetas con info nutricional
+recipes-data.js    - 59 recetas con info nutricional
 app.js             - Lógica de la aplicación
 manifest.json      - Configuración PWA
 service-worker.js  - Funcionalidad offline

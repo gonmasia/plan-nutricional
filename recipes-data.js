@@ -69,7 +69,8 @@ const recipesData = {
         { id: 'cen1', num: 1, title: 'Tortilla de zapallito', desc: 'Con papas hervidas', time: 25, cal: 340, prot: 18, diff: 'Fácil', badges: ['protein', 'easy'], category: 'A Base de Huevo' },
         { id: 'cen2', num: 2, title: 'Huevos al colchón de arvejas', desc: '2 huevos sobre arvejas con cebolla y pimiento salteados', time: 20, cal: 320, prot: 20, diff: 'Fácil', badges: ['protein', 'quick'], category: 'A Base de Huevo' },
         { id: 'cen3', num: 3, title: 'Omelete de verduras y queso', desc: 'Con tomate con albahaca u orégano', time: 15, cal: 300, prot: 22, diff: 'Fácil', badges: ['protein', 'quick'], category: 'A Base de Huevo' },
-        { id: 'cen4', num: 4, title: 'Tortilla española', desc: 'Con papa y cebolla + ensalada verde', time: 30, cal: 360, prot: 16, diff: 'Media', badges: ['carbs'], category: 'A Base de Huevo' },
+        { id: 'cen4a', num: 4, title: 'Omelete de atún y verduras', desc: 'Con verduras picadas + tomate con albahaca u orégano', time: 20, cal: 310, prot: 26, diff: 'Fácil', badges: ['protein', 'quick'], category: 'A Base de Huevo' },
+        { id: 'cen4', num: 5, title: 'Tortilla española', desc: 'Con papa y cebolla + ensalada verde', time: 30, cal: 360, prot: 16, diff: 'Media', badges: ['carbs'], category: 'A Base de Huevo' },
         { id: 'cen5', num: 5, title: 'Huevos revueltos con verduras', desc: 'Con tomate y cebolla + ensalada', time: 15, cal: 280, prot: 18, diff: 'Fácil', badges: ['protein', 'quick'], category: 'A Base de Huevo' },
         { id: 'cen6', num: 6, title: 'Huevos a la plancha (2)', desc: 'Con jamón y queso + ensalada de tomate', time: 15, cal: 320, prot: 24, diff: 'Fácil', badges: ['protein', 'quick'], category: 'A Base de Huevo' },
 
