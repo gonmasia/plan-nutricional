@@ -163,6 +163,22 @@ function createRecipeCard(recipe, section) {
     html += `<div class="meta-item">🥩 <strong>${recipe.prot}g prot</strong></div>`;
     html += `<div class="meta-item">👨‍🍳 <strong>${recipe.diff}</strong></div>`;
     html += '</div>';
+
+    // Add instructions section
+    if (recipe.instructions) {
+        html += `<div class="recipe-instructions-toggle" onclick="toggleInstructions('${recipe.id}')">`;
+        html += '📖 Ver preparación <span class="toggle-arrow">▼</span>';
+        html += '</div>';
+        html += `<div class="recipe-instructions" id="instructions-${recipe.id}" style="display: none;">`;
+        const steps = recipe.instructions.split('\n');
+        steps.forEach(step => {
+            if (step.trim()) {
+                html += `<div class="instruction-step">${step}</div>`;
+            }
+        });
+        html += '</div>';
+    }
+
     html += '</div>';
 
     return html;
@@ -502,6 +518,22 @@ function exportToPDF() {
 function showStats() {
     showTab('dashboard');
     document.querySelector('[onclick="showTab(\'dashboard\')"]').click();
+}
+
+// Toggle recipe instructions
+function toggleInstructions(recipeId) {
+    const instructionsDiv = document.getElementById(`instructions-${recipeId}`);
+    const card = document.querySelector(`[data-id="${recipeId}"]`);
+    const toggleBtn = card.querySelector('.recipe-instructions-toggle');
+    const arrow = toggleBtn.querySelector('.toggle-arrow');
+
+    if (instructionsDiv.style.display === 'none') {
+        instructionsDiv.style.display = 'block';
+        arrow.textContent = '▲';
+    } else {
+        instructionsDiv.style.display = 'none';
+        arrow.textContent = '▼';
+    }
 }
 
 // Close modals on outside click
