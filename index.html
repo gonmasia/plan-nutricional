@@ -909,6 +909,149 @@
         .hidden {
             display: none !important;
         }
+
+        /* Training Plan Enhanced Styles */
+        #entrenamiento .card {
+            background: linear-gradient(to bottom right, var(--bg-light), var(--bg-gray));
+            border-left: 4px solid var(--primary);
+        }
+
+        #entrenamiento h3 {
+            color: var(--primary);
+            font-size: 22px;
+            font-weight: 700;
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        #entrenamiento h4 {
+            color: var(--primary-dark);
+            font-size: 18px;
+            font-weight: 600;
+            margin: 24px 0 12px 0;
+            padding-left: 12px;
+            border-left: 3px solid var(--accent);
+        }
+
+        #entrenamiento ul {
+            list-style: none;
+            padding-left: 0;
+            margin: 16px 0;
+        }
+
+        #entrenamiento ul li {
+            padding: 12px 16px;
+            margin-bottom: 8px;
+            background: var(--bg-gray);
+            border-radius: 8px;
+            border-left: 3px solid var(--accent);
+            line-height: 1.7;
+            transition: all 0.3s;
+        }
+
+        #entrenamiento ul li:hover {
+            background: var(--bg-light);
+            transform: translateX(4px);
+            box-shadow: var(--shadow-sm);
+        }
+
+        #entrenamiento ul li strong {
+            color: var(--primary);
+            font-weight: 700;
+        }
+
+        #entrenamiento ol {
+            padding-left: 24px;
+            margin: 16px 0;
+        }
+
+        #entrenamiento ol li {
+            padding: 10px 0;
+            line-height: 1.7;
+            color: var(--text-dark);
+        }
+
+        #entrenamiento ol li strong {
+            color: var(--primary);
+            font-weight: 700;
+        }
+
+        #entrenamiento p {
+            line-height: 1.8;
+            margin-bottom: 12px;
+            color: var(--text-dark);
+        }
+
+        #entrenamiento em {
+            display: block;
+            padding: 12px;
+            background: var(--bg-gray);
+            border-radius: 6px;
+            color: var(--text-gray);
+            font-style: italic;
+            margin: 16px 0;
+        }
+
+        .training-phase-badge {
+            display: inline-block;
+            padding: 6px 14px;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            color: white;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: 600;
+            margin-right: 8px;
+        }
+
+        .training-objective {
+            background: linear-gradient(135deg, #e3f2fd, #bbdefb);
+            border-left: 4px solid var(--info);
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+        }
+
+        [data-theme="dark"] .training-objective {
+            background: linear-gradient(135deg, #0d47a1, #1565c0);
+        }
+
+        #entrenamiento .table-container {
+            margin: 20px 0;
+            box-shadow: var(--shadow-md);
+            border-radius: 12px;
+            overflow: hidden;
+        }
+
+        #entrenamiento table {
+            border-radius: 12px;
+            overflow: hidden;
+        }
+
+        #entrenamiento table th {
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            padding: 14px;
+            font-size: 15px;
+        }
+
+        #entrenamiento table td {
+            padding: 14px;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        #entrenamiento table tbody tr:hover {
+            background: var(--primary-light);
+            color: white;
+            transform: scale(1.01);
+        }
+
+        .section-divider {
+            height: 2px;
+            background: linear-gradient(to right, transparent, var(--primary), transparent);
+            margin: 32px 0;
+        }
     </style>
 </head>
 <body>
@@ -963,6 +1106,9 @@
         <button class="tab" onclick="showTab('cenas')">
             Cenas
             <span class="tab-badge" id="cenasBadge">0</span>
+        </button>
+        <button class="tab" onclick="showTab('entrenamiento')">
+            ⚽ Entrenamiento
         </button>
     </div>
 
@@ -1233,6 +1379,284 @@
         <div id="almuerzos" class="tab-content"></div>
         <div id="meriendas" class="tab-content"></div>
         <div id="cenas" class="tab-content"></div>
+
+        <!-- ENTRENAMIENTO Tab -->
+        <div id="entrenamiento" class="tab-content">
+            <div class="card">
+                <div class="card-header">
+                    <h2 class="card-title">⚽ Plan de Entrenamiento para Fútbol</h2>
+                </div>
+                <div class="training-objective">
+                    <h4 style="margin: 0 0 12px 0; color: var(--info); border: none; padding: 0;">🎯 Objetivo Principal</h4>
+                    <p style="margin: 0; font-size: 16px; font-weight: 600; color: var(--text-dark);">Llegar a correr 1 hora de partido con buen estado físico</p>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                    <h3>📋 Principios del Plan</h3>
+                </div>
+                <p style="font-size: 15px; line-height: 1.8;">Este plan combina <strong>resistencia aeróbica</strong>, <strong>trabajo intermitente</strong> (similar al fútbol) y <strong>fuerza funcional</strong>. El fútbol no es correr continuo: son sprints, pausas, cambios de dirección y recuperaciones. El entrenamiento debe reflejar eso.</p>
+                <div class="section-divider"></div>
+                <div class="info-box info-box-success" style="margin-top: 20px;">
+                    <p style="margin: 0;"><strong>💪 Frecuencia recomendada:</strong> 3-4 sesiones por semana (sin contar el partido del lunes)</p>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                    <h3>📅 Estructura Semanal</h3>
+                </div>
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Día</th>
+                                <th>Tipo de Entrenamiento</th>
+                                <th>Duración</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><td><strong>Lunes</strong></td><td>PARTIDO</td><td>60 min</td></tr>
+                            <tr><td><strong>Martes</strong></td><td>Descanso activo (caminata o elongación)</td><td>20-30 min</td></tr>
+                            <tr><td><strong>Miércoles</strong></td><td>Resistencia aeróbica</td><td>30-40 min</td></tr>
+                            <tr><td><strong>Jueves</strong></td><td>Intervalos + Fuerza</td><td>40-45 min</td></tr>
+                            <tr><td><strong>Viernes</strong></td><td>Descanso o movilidad</td><td>-</td></tr>
+                            <tr><td><strong>Sábado</strong></td><td>Entrenamiento intermitente (simula partido)</td><td>35-45 min</td></tr>
+                            <tr><td><strong>Domingo</strong></td><td>Descanso total</td><td>-</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                    <h3><span class="training-phase-badge">FASE 1</span>📈 Base Aeróbica (Semanas 1-4)</h3>
+                </div>
+                <div class="training-objective" style="background: linear-gradient(135deg, #e3f2fd, #bbdefb);">
+                    <h4 style="margin: 0 0 8px 0; color: var(--info); border: none; padding: 0;">🎯 Objetivo de esta fase</h4>
+                    <p style="margin: 0;">Construir resistencia cardiovascular básica para aguantar el partido sin fatigarse en exceso.</p>
+                </div>
+
+                <h4>🏃 Miércoles - Resistencia Continua</h4>
+                <ul>
+                    <li><strong>Semana 1:</strong> Trote suave 20 min (sin parar, ritmo conversacional)</li>
+                    <li><strong>Semana 2:</strong> Trote suave 25 min</li>
+                    <li><strong>Semana 3:</strong> Trote suave 30 min</li>
+                    <li><strong>Semana 4:</strong> Trote suave 35 min</li>
+                </ul>
+                <em>💡 Ritmo: Debes poder hablar mientras corres. Si no podes, vas muy rápido.</em>
+
+                <h4>⚡ Jueves - Intervalos Básicos + Fuerza</h4>
+                <p><strong>Calentamiento:</strong> 5 min trote suave</p>
+                <p><strong>Intervalos (semanas 1-2):</strong></p>
+                <ul>
+                    <li>6 x (30 seg trote rápido + 60 seg caminata)</li>
+                    <li>Descanso 2 min</li>
+                    <li>6 x (30 seg trote rápido + 60 seg caminata)</li>
+                </ul>
+                <p><strong>Intervalos (semanas 3-4):</strong></p>
+                <ul>
+                    <li>8 x (30 seg trote rápido + 45 seg caminata)</li>
+                    <li>Descanso 2 min</li>
+                    <li>8 x (30 seg trote rápido + 45 seg caminata)</li>
+                </ul>
+
+                <h4>💪 Fuerza (después de intervalos)</h4>
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr><th>Ejercicio</th><th>Repeticiones</th><th>Series</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>Sentadillas</td><td>15</td><td>3</td></tr>
+                            <tr><td>Estocadas (cada pierna)</td><td>10</td><td>3</td></tr>
+                            <tr><td>Plancha abdominal</td><td>30 seg</td><td>3</td></tr>
+                            <tr><td>Elevación de talones</td><td>20</td><td>3</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <h4>🔄 Sábado - Intermitente Suave</h4>
+                <ul>
+                    <li>5 min calentamiento</li>
+                    <li>20 min de: trote 2 min → caminata 1 min → sprint suave 15 seg → caminata 45 seg (repetir)</li>
+                    <li>5 min enfriamiento</li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                    <h3><span class="training-phase-badge" style="background: linear-gradient(135deg, var(--warning), #e76f51);">FASE 2</span>💪 Capacidad Intermitente (Semanas 5-8)</h3>
+                </div>
+                <div class="training-objective" style="background: linear-gradient(135deg, #fff3e0, #ffe0b2);">
+                    <h4 style="margin: 0 0 8px 0; color: var(--warning); border: none; padding: 0;">🎯 Objetivo de esta fase</h4>
+                    <p style="margin: 0;">Mejorar la capacidad de recuperación entre esfuerzos intensos (como en un partido real).</p>
+                </div>
+
+                <h4>🏃 Miércoles - Resistencia con Cambios de Ritmo</h4>
+                <ul>
+                    <li><strong>Semana 5:</strong> 35 min: 5 min trote suave → 1 min rápido → repetir</li>
+                    <li><strong>Semana 6:</strong> 40 min: 4 min trote suave → 1 min rápido → repetir</li>
+                    <li><strong>Semana 7:</strong> 40 min: 3 min trote suave → 1.5 min rápido → repetir</li>
+                    <li><strong>Semana 8:</strong> 45 min: 3 min trote suave → 2 min rápido → repetir</li>
+                </ul>
+
+                <h4>⚡ Jueves - Intervalos Intensos + Fuerza</h4>
+                <p><strong>Intervalos HIIT:</strong></p>
+                <ul>
+                    <li>10 x (20 seg sprint al 80% + 40 seg trote suave)</li>
+                    <li>Descanso 3 min</li>
+                    <li>10 x (20 seg sprint al 80% + 40 seg trote suave)</li>
+                </ul>
+
+                <h4>💪 Fuerza</h4>
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr><th>Ejercicio</th><th>Repeticiones</th><th>Series</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>Sentadillas con salto</td><td>12</td><td>3</td></tr>
+                            <tr><td>Estocadas con salto</td><td>8 cada pierna</td><td>3</td></tr>
+                            <tr><td>Plancha lateral</td><td>30 seg cada lado</td><td>3</td></tr>
+                            <tr><td>Skipping en el lugar</td><td>30 seg</td><td>3</td></tr>
+                            <tr><td>Burpees (sin salto si es difícil)</td><td>8</td><td>3</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <h4>⚽ Sábado - Simulación de Partido</h4>
+                <ol>
+                    <li><strong>Calentamiento</strong> (5 min): Trote suave + movilidad</li>
+                    <li><strong>Primer tiempo simulado</strong> (15 min): 2 min trote → 30 seg sprint → 1 min caminata → Repetir 4 veces</li>
+                    <li><strong>Descanso</strong> (3 min): Como entretiempo</li>
+                    <li><strong>Segundo tiempo simulado</strong> (15 min): Igual que el primero</li>
+                    <li><strong>Enfriamiento</strong> (5 min): Trote suave + elongación</li>
+                </ol>
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                    <h3><span class="training-phase-badge" style="background: linear-gradient(135deg, var(--success), #2e7d32);">FASE 3</span>🎯 Puesta a Punto (Semanas 9-12)</h3>
+                </div>
+                <div class="training-objective" style="background: linear-gradient(135deg, #e8f5e9, #c8e6c9);">
+                    <h4 style="margin: 0 0 8px 0; color: var(--success); border: none; padding: 0;">🎯 Objetivo de esta fase</h4>
+                    <p style="margin: 0;">Afinar la resistencia específica y llegar al partido fresco y con energía.</p>
+                </div>
+
+                <h4>🏃 Miércoles - Resistencia Específica</h4>
+                <ul>
+                    <li><strong>Semana 9:</strong> 45 min fartlek: alternar ritmos libremente según sensación</li>
+                    <li><strong>Semana 10:</strong> 50 min con 5 sprints de 30 seg intercalados</li>
+                    <li><strong>Semana 11:</strong> 45 min ritmo constante moderado</li>
+                    <li><strong>Semana 12:</strong> 30 min suave (semana de descarga)</li>
+                </ul>
+
+                <h4>⚡ Jueves - Potencia y Velocidad</h4>
+                <p><strong>Trabajo de velocidad:</strong></p>
+                <ul>
+                    <li>6 x sprints de 30 metros (recuperación caminando al inicio)</li>
+                    <li>4 x sprints de 50 metros (recuperación 90 seg)</li>
+                    <li>8 x cambios de dirección rápidos (5 metros ida y vuelta x 3)</li>
+                </ul>
+
+                <h4>💪 Fuerza Explosiva</h4>
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr><th>Ejercicio</th><th>Repeticiones</th><th>Series</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>Sentadillas con salto</td><td>10</td><td>4</td></tr>
+                            <tr><td>Saltos al cajón o banco</td><td>10</td><td>3</td></tr>
+                            <tr><td>Plancha con toque de hombros</td><td>20 (10 cada lado)</td><td>3</td></tr>
+                            <tr><td>Sprint en el lugar</td><td>20 seg máxima intensidad</td><td>4</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <h4>⚽ Sábado - Partido Simulado Completo</h4>
+                <p><strong>Duración:</strong> 50-60 min (simular partido real)</p>
+                <ul>
+                    <li>5 min calentamiento</li>
+                    <li>20-25 min primer tiempo simulado (variando intensidades)</li>
+                    <li>3 min descanso</li>
+                    <li>20-25 min segundo tiempo simulado</li>
+                    <li>5 min enfriamiento y elongación</li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                    <h3>🏋️ Ejercicios de Fuerza - Descripción</h3>
+                </div>
+                <div class="recipe-instructions" style="display: block;">
+                    <div class="instruction-step"><strong>Sentadillas:</strong> Pies al ancho de hombros, bajar hasta que los muslos queden paralelos al piso, rodillas no pasan la punta de los pies, espalda recta</div>
+                    <div class="instruction-step"><strong>Estocadas:</strong> Paso largo hacia adelante, rodilla trasera casi toca el piso, rodilla delantera a 90 grados, alternar piernas</div>
+                    <div class="instruction-step"><strong>Plancha:</strong> Apoyar antebrazos y puntas de pies, cuerpo en línea recta (sin levantar cola ni hundirla), contraer abdomen</div>
+                    <div class="instruction-step"><strong>Burpees:</strong> Desde parado, bajar a posición de plancha, hacer una flexión (opcional), volver a parado, salto opcional al final</div>
+                    <div class="instruction-step"><strong>Skipping:</strong> Correr en el lugar levantando rodillas al pecho, mantener ritmo rápido, brazos acompañan el movimiento</div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                    <h3>⚽ Tips para el Día del Partido (Lunes)</h3>
+                </div>
+                <h4>Antes:</h4>
+                <ul>
+                    <li>Comer 2-3 horas antes (carbohidrato + proteína liviana)</li>
+                    <li>Hidratarse bien durante el día</li>
+                    <li>Calentamiento de 10 min mínimo antes de jugar</li>
+                </ul>
+                <h4>Durante:</h4>
+                <ul>
+                    <li>Tomar agua en cada pausa</li>
+                    <li>No arrancar a máxima intensidad, ir calentando</li>
+                </ul>
+                <h4>Después:</h4>
+                <ul>
+                    <li>Elongar 10 min</li>
+                    <li>Rehidratarse</li>
+                    <li>Comer dentro de las 2 horas post-partido (proteína + carbohidrato)</li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                    <h3>📊 Progresión de Resistencia Esperada</h3>
+                </div>
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr><th>Semana</th><th>Capacidad Estimada</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>1-2</td><td>Aguantar 20-30 min de juego activo</td></tr>
+                            <tr><td>3-4</td><td>Aguantar 35-40 min con pausas</td></tr>
+                            <tr><td>5-6</td><td>Aguantar 45 min, recuperación lenta</td></tr>
+                            <tr><td>7-8</td><td>Aguantar 50 min, mejor recuperación</td></tr>
+                            <tr><td>9-10</td><td>Aguantar 55-60 min con energía</td></tr>
+                            <tr><td>11-12</td><td>Partido completo con reserva de energía</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                    <h3>⚠️ Señales de Alerta (Parar si...)</h3>
+                </div>
+                <div class="info-box info-box-warning">
+                    <p>• Dolor en el pecho</p>
+                    <p>• Mareos o visión borrosa</p>
+                    <p>• Dolor articular agudo (rodillas, tobillos)</p>
+                    <p>• Fatiga extrema que no mejora con descanso</p>
+                </div>
+                <p style="margin-top: 20px;"><em>Este plan es progresivo. Si una semana se siente muy difícil, repetirla antes de avanzar. La consistencia es más importante que la intensidad.</em></p>
+            </div>
+        </div>
     </div>
 
     <!-- Calculator Modal -->
